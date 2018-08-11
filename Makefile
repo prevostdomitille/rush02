@@ -6,7 +6,7 @@
 #    By: dprevost <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/08/11 15:26:36 by dprevost          #+#    #+#              #
-#    Updated: 2018/08/11 15:28:43 by dprevost         ###   ########.fr        #
+#    Updated: 2018/08/11 15:34:16 by dprevost         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,8 @@ FLAGS = -Wextra -Werror -Wall
 all : fclean $(NAME)
 
 $(NAME) :
-	@ gcc -o $(NAME) $(SRC) $(FLAGS) -I ft_head.h
+	 gcc -o $(NAME) $(SRC) $(FLAGS) -I ft_head.h
 clean :
-	@ rm *.o
-fclean : @rm -f $(NAME)
+	 rm *.o
+fclean : clean
+	rm -f $(NAME)
