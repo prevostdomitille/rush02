@@ -1,36 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   main00.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ale-goff <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/11 15:48:33 by ale-goff          #+#    #+#             */
-/*   Updated: 2018/08/11 15:54:08 by ale-goff         ###   ########.fr       */
+/*   Created: 2018/08/11 22:52:10 by ale-goff          #+#    #+#             */
+/*   Updated: 2018/08/12 00:22:03 by ale-goff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(char *str)
-{
-	int	result;
-	int	sign;
+#include "header.h"
+#define BUF_SIZE 4096
 
-	result = 0;
-	sign = 1;
-	while (*str == ' ' || *str == '\t' || *str == '\n'
-		|| *str == '\r' || *str == '\v' || *str == '\f')
-		str++;
-	if (*str == '+')
-		str++;
-	else if (*str == '-')
+int		main(void)
+{
+	char	buf[BUF_SIZE];
+	int		ret;
+
+	ret = read(0, buf, BUF_SIZE);
+	if (ret == 0)
 	{
-		sign = -1;
-		str++;
+		return (1);
 	}
-	while (*str >= '0' && *str <= '9')
-	{
-		result = result * 10 + *str - '0';
-		str++;
-	}
-	return (result * sign);
+	buf[ret] = '\0';
+	test_rush(buf);
 }
